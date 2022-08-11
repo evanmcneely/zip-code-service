@@ -3,18 +3,18 @@ import { gql } from 'apollo-server';
 const typeDefs = gql`
     
     type Query {
-        zipCodeSearch(SearchInput!): ZipCode
+        zipCodeSearch(SearchInput: SearchInput): ZipCode
     }
     
     type ZipCode {
-        code
-        cityName
-        stateName
-        countryName
-        stateAbrev
-        countryAbrev
-        long
-        lat
+        code: String
+        cityName: String
+        stateName: String
+        countryName: String
+        stateAbrev: String
+        countryAbrev: String
+        long: String
+        lat: String
     }
 
     # limit supported countries to Canada and US
@@ -25,7 +25,7 @@ const typeDefs = gql`
 
     input SearchInput {
         countryCode: SupportedCountries # add a default value to US here?
-        zipCode: String!
+        zipCode: String
     }
 `;
 

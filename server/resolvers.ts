@@ -1,8 +1,10 @@
 import axios from 'axios';
+import { APIResponse } from '../@types/ZippopotamusTypes';
+import { ZipCodeSearchInput } from '../@types/APITypes';
 
 const resolvers = {
   Query: {
-    zipCodeSearch: async (_, args: ZipCodeSearchInput): Promise<APIResponse | Error> => {
+    zipCodeSearch: async (_: any, args: ZipCodeSearchInput): Promise<APIResponse | Error> => {
       const { countryCode, zipCode } = args;
 
       // sanitize data before making the request to Zippopotamus

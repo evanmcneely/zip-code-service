@@ -1,6 +1,6 @@
-type SupportedCountries = 'CA' | 'US';
+export type SupportedCountries = 'CA' | 'US';
 
-interface ZipCodeSearchInput {
+export interface ZipCodeSearchInput {
   countryCode: SupportedCountries;
   zipCode: String;
 }

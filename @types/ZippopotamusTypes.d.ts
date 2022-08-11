@@ -1,6 +1,8 @@
+import { SupportedCountries } from "./APITypes";
+
 // specify the format of data returned from the Zippopotamus API
 
-interface APIResponse {
+export interface APIResponse {
     'post code': String;
     country: 'United States' | 'Canada';
     'country abbreviation':  SupportedCountries;
