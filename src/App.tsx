@@ -4,9 +4,10 @@ import Search from './components/Search';
 import ZipCode from './components/ZipCode';
 import './App.css';
 
+
 function App() {
-  return (
-    <div className="App">
+  return ( 
+      <div className="App">
       <div className="searchContainer">
         <Search />
         <ZipCode />
