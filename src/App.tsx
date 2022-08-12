@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import History from './components/History';
 import Search from './components/Search';
 import ZipCode from './components/ZipCode';
@@ -11,6 +11,8 @@ const ZIPCODE_LOOKUP_QUERY = gql`
         zipCodeSearch(searchInput: $input) {
             cityName
             stateName
+            code
+            countryAbrev
         }
     }
 `;
@@ -20,6 +22,26 @@ function App() {
   const [searchResult, setSearchResult] = useState<ZipCodeSearchResult | null>(null);
 
   const [lookupZipCode, {data, loading, error}] = useLazyQuery(ZIPCODE_LOOKUP_QUERY);
+
+  useEffect(()=>{
+    if(data && !loading) {
+        console.log(data);
+        if (searchResult !== null) {
+            const newSearchHistory = [...searchHistory];
+            newSearchHistory.unshift(searchResult);
+            setSearchHistory(newSearchHistory.slice(0,5));
+        }
+        console.log(data);
+        const {code, countryAbrev, stateName, cityName} = data.zipCodeSearch;
+
+        setSearchResult({
+            zipCode: code,
+            countryCode: countryAbrev,
+            state: stateName,
+            city: cityName,
+        });
+    }
+  }, data)
 
   return ( 
       <div className="App">
