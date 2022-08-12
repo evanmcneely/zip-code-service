@@ -1,5 +1,3 @@
-import { ApolloError, LazyQueryExecFunction } from '@apollo/client';
-
 export interface ZipCodeSearchResult {
   city: String;
   state: String;
@@ -19,3 +17,4 @@ export interface SearchProps {
 export interface ZipCodeProps {
   searchResult: ZipCodeSearchResult;
 }
+

@@ -26,8 +26,8 @@ function App() {
       <div className="searchContainer">
         <Search lookupZipCode={lookupZipCode} error={error}/>
         {loading ? 
-            searchResult ? <ZipCode searchResult={searchResult}/> : <div>Click Search to See Your Result</div> :
-            <div>Loading</div>}
+            <div>Loading</div> :
+            searchResult ? <ZipCode searchResult={searchResult}/> : <div>Click Search to See Your Result</div>}
       </div>
       <div className="historyContainer">
         <History searchHistory={searchHistory}/>
