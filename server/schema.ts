@@ -3,7 +3,7 @@ import { gql } from 'apollo-server';
 const typeDefs = gql`
     
     type Query {
-        zipCodeSearch(searchInput: SearchInput): ZipCode
+        zipCodeSearch(searchInput: SearchInput!): ZipCode
     }
     
     type ZipCode {
