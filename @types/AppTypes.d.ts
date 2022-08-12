@@ -1,22 +1,21 @@
-import { ApolloError, LazyQueryExecFunction } from "@apollo/client";
+import { ApolloError, LazyQueryExecFunction } from '@apollo/client';
 
 export interface ZipCodeSearchResult {
-    city: String;
-    state: String;
-    zipCode: String;
-    countryCode: String;
+  city: String;
+  state: String;
+  zipCode: String;
+  countryCode: String;
 }
 
 export interface HistoryProps {
-    searchHistory: ZipCodeSearchResult[];
+  searchHistory: ZipCodeSearchResult[];
 }
 
 export interface SearchProps {
-    lookupZipCode: LazyQueryExecFunction<any, OperationVariables>;
-    error: ApolloError | undefined;
+  lookupZipCode: LazyQueryExecFunction<any, OperationVariables>;
+  error: ApolloError | undefined;
 }
 
 export interface ZipCodeProps {
-    searchResult: ZipCodeSearchResult;
+  searchResult: ZipCodeSearchResult;
 }
-
