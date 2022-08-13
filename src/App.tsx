@@ -26,14 +26,15 @@ function App() {
 
   useEffect(()=>{
     if(data && !loading) {
+        // if the previous search result is not null, then we have search history to add before updating the search result
         if (searchResult !== null) {
+            // only show the last 5 search results
             const newSearchHistory = [...searchHistory];
             newSearchHistory.unshift(searchResult);
             setSearchHistory(newSearchHistory.slice(0,5));
         }
 
         const {code, countryAbrev, stateName, cityName} = data.zipCodeSearch;
-
         setSearchResult({
             zipCode: code,
             countryCode: countryAbrev,
@@ -43,6 +44,7 @@ function App() {
     }
   }, [data])
 
+  // conditinoall render a "loading" or "Click Search..." depending on current application state
   return ( 
     <div className="App">
         <div className="console">

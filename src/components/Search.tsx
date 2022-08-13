@@ -4,6 +4,7 @@ import { SearchProps } from "../../@types/AppTypes";
 export default function Search({lookupZipCode, error}:SearchProps) {
     const [countryCode, setCountryCode] = useState<string>('US');
     const [zipCode, setZipCode] = useState<string>('');
+    // this is "Postal Code" or "Zip Code" depending on current country status
     const codeName = countryCode === 'US' ? 'ZipCode' : 'PostalCode'
 
     const handleSearch = (event:any) => {
