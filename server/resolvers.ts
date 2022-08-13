@@ -1,6 +1,5 @@
 import axios from 'axios';
-import { ZippopotamusResponse } from '../@types/ZippopotamusTypes';
-import { ZipCodeSearchInput, APIResponse } from '../@types/APITypes';
+import { ZipCodeSearchInput, APIResponse, ZippopotamusResponse } from '../@types/APITypes';
 
 const resolvers = {
   Query: {
