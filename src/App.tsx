@@ -3,6 +3,7 @@ import History from './components/History';
 import Search from './components/Search';
 import ZipCode from './components/ZipCode';
 import {ZipCodeSearchResult} from '../@types/AppTypes'
+import { APIResponse } from '../@types/APITypes';
 import { gql, useLazyQuery } from '@apollo/client';
 import './App.css';
 
@@ -21,7 +22,7 @@ function App() {
   const [searchHistory, setSearchHistory] = useState<ZipCodeSearchResult[]>([]);
   const [searchResult, setSearchResult] = useState<ZipCodeSearchResult | null>(null);
 
-  const [lookupZipCode, {data, loading, error}] = useLazyQuery(ZIPCODE_LOOKUP_QUERY);
+  const [lookupZipCode, {data, loading, error}] = useLazyQuery<{zipCodeSearch: APIResponse}>(ZIPCODE_LOOKUP_QUERY);
 
   useEffect(()=>{
     if(data && !loading) {
