@@ -52,7 +52,7 @@ function App() {
                     searchResult ? <ZipCode searchResult={searchResult}/> : <div>Click Search to See Your Result</div>}
             </div>
             <div className="history container">
-                <History searchHistory={searchHistory}/>
+                <History searchHistory={searchHistory} setSearchHistory={setSearchHistory}/>
             </div>
         </div>
     </div>

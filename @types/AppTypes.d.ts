@@ -7,6 +7,7 @@ export interface ZipCodeSearchResult {
 
 export interface HistoryProps {
   searchHistory: ZipCodeSearchResult[];
+  setSearchHistory: React.Dispatch<React.SetStateAction<ZipCodeSearchResult[]>>;
 }
 
 export interface SearchProps {
@@ -17,4 +18,3 @@ export interface SearchProps {
 export interface ZipCodeProps {
   searchResult: ZipCodeSearchResult;
 }
-
