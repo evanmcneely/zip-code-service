@@ -19,9 +19,11 @@ const resolvers = {
         return new Error('Improperly formated request');
       }
 
+      const queryCode = countryCode === 'CA' ? zipCode.slice(0,3) : zipCode
+
       try {
         const response: { data: ZippopotamusResponse } = await axios.get(
-          `http://api.zippopotam.us/${countryCode}/${zipCode}`
+          `http://api.zippopotam.us/${countryCode}/${queryCode}`
         );
 
         // if there are more than 1 places for the ZipCode, use the first place and append "area" to signify that the surrouding area is included
@@ -39,6 +41,7 @@ const resolvers = {
           lat: response.data.places[0].latitude,
         };
       } catch (err) {
+        console.log(err)
         // catch all error handler for failed ZipCode queries
         // should have better error handling for codes that don't exist vs other network errors
         return new Error('The service may be down or the Zip Code does not exist');
