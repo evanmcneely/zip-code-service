@@ -21,6 +21,15 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
-  ]
+    "src",
+    "test"
+  ],
+  "types": [
+    "node",
+    "jest"
+  ],
+  "typeRoots": [
+    "@types",
+    "node_modules/@types"
+  ],
 }
