@@ -25,13 +25,12 @@ function App() {
 
   useEffect(()=>{
     if(data && !loading) {
-        console.log(data);
         if (searchResult !== null) {
             const newSearchHistory = [...searchHistory];
             newSearchHistory.unshift(searchResult);
             setSearchHistory(newSearchHistory.slice(0,5));
         }
-        console.log(data);
+
         const {code, countryAbrev, stateName, cityName} = data.zipCodeSearch;
 
         setSearchResult({
@@ -41,19 +40,21 @@ function App() {
             city: cityName,
         });
     }
-  }, data)
+  }, [data])
 
   return ( 
-      <div className="App">
-      <div className="searchContainer">
-        <Search lookupZipCode={lookupZipCode} error={error}/>
-        {loading ? 
-            <div>Loading</div> :
-            searchResult ? <ZipCode searchResult={searchResult}/> : <div>Click Search to See Your Result</div>}
-      </div>
-      <div className="historyContainer">
-        <History searchHistory={searchHistory}/>
-      </div>
+    <div className="App">
+        <div className="console">
+            <div className="search container">
+                <Search lookupZipCode={lookupZipCode} error={error}/>
+                {loading ? 
+                    <div>Loading ...</div> :
+                    searchResult ? <ZipCode searchResult={searchResult}/> : <div>Click Search to See Your Result</div>}
+            </div>
+            <div className="history container">
+                <History searchHistory={searchHistory}/>
+            </div>
+        </div>
     </div>
   );
 }

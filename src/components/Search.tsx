@@ -13,8 +13,7 @@ export default function Search({lookupZipCode, error}:SearchProps) {
 
     return (
     <div id="searchForm">
-        Lookup Locations of Zip and Postal Codes
-        {error && <p id="searchError" >{`${error}`}</p>}
+        <div className="title">Lookup Locations of Zip and Postal Codes</div>
         <form onSubmit={(e)=>handleSearch(e)}>
             <label htmlFor="conutryCode">Country:</label>
             <select name="countryCode" id="countryCode" onChange={(e)=>setCountryCode(e.target.value)}>
@@ -23,8 +22,9 @@ export default function Search({lookupZipCode, error}:SearchProps) {
             </select>
             <label htmlFor="zipCode">{codeName}:</label>
             <input type="text" id="zipCode" name="zipCode" onChange={(e)=>setZipCode(e.target.value)}/>
-            <input type="submit" value="Search"/>
+            <input id="searchButton" type="submit" value="Search"/>
         </form>
+        {error && <p id="searchError" >{`${error}`}</p>}
     </div>
     )
 }

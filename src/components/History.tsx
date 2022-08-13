@@ -6,12 +6,12 @@ export default function History({searchHistory}:HistoryProps) {
     return (
     <>
         <div id="historyHeader">
-            <div>Search History</div>
+            <div className="title">Search History</div>
             <button id="clearButton">Clear</button>
         </div>
         <div>
-            {searchHistory.map((search) => {
-                return <ZipCode searchResult={search} />;
+            {searchHistory.map((search, i) => {
+                return <ZipCode searchResult={search} key={i}/>;
             })}
         </div>
     </>
